@@ -1,0 +1,24 @@
+Package: AutoForecaster
+Type: Package
+Title:  Auto Magic Forecaster Optimizes by aicc (Auto Forecaster)
+Version: 0.1.0
+Authors@R: person("Robert", "Walker", email = "rwalker@willamette.edu",
+                  role = c("aut", "cre"))
+Description: The package contains a few minimal functions for building an automagic forecaster using tools from the `tidyverts`.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 4.0.0)
+Imports:
+    fabletools,
+    base,
+    fable,
+    fable.prophet,
+    feasts,
+    rlang,
+    ggplot2,
+    dplyr,
+    nnet,
+    magrittr,
+    distributional
+RoxygenNote: 7.1.1
