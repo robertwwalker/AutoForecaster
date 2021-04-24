@@ -1,6 +1,6 @@
 Package: AutoForecaster
 Type: Package
-Title:  Auto Magic Forecaster Optimizes by aicc (Auto Forecaster)
+Title: Auto Magic Forecaster Optimizes by aicc (Auto Forecaster)
 Version: 0.1.0
 Authors@R: person("Robert", "Walker", email = "rwalker@willamette.edu",
                   role = c("aut", "cre"))
@@ -22,3 +22,4 @@ Imports:
     magrittr,
     distributional
 RoxygenNote: 7.1.1
+URL: https://robertwwalker.github.io/AutoForecaster
