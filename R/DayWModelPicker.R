@@ -17,16 +17,17 @@
 #' @import fpp3
 #' @importFrom feasts gg_tsresiduals
 #' @importFrom magrittr %>%
-#' @return A list containing:
-#' @return Accuracy.Table for the forecast horizon against the test sample.
-#' @return test: the test set
-#' @return train: the training set
-#' @return Model.Fits: the model fits
-#' @return Model.Forecasts: the forecasts
-#' @return Min.Model: the minimum model by MAE
-#' @return Min.Report: the minimum model report
-#' @return Min.Res.Plot: the gg_tsdisplay for the minimum model
-#' @return Min.Forecast.Plot: a plot of the minimum forecast by MAE
+#' @return A list containing: \itemize{
+#' \item **Accuracy.Table**: `accuracy` for the forecast horizon against the test sample.
+#' \item **test**: the test set
+#' \item **train**: the training set
+#' \item **Model.Fits**: the model fits
+#' \item **Model.Forecasts**: the forecasts
+#' \item **Min.Model**: the minimum model by MAE
+#' \item **Min.Report**: the minimum model report
+#' \item **Min.Res.Plot**: the gg_tsdisplay for the minimum model
+#' \item **Min.Forecast.Plot**: a plot of the minimum forecast by MAE
+#' }
 #' @export
 DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
   # Turn the symbols -- names that will make sense in their environments when called -- that the user supplies into symbolics.  This is the role of ensym.

@@ -16,25 +16,17 @@ MonthModelPicker(data, Outcome, DateVar, H.Horizon = 14)
 \item{H.Horizon}{An integer for the forecast horizon/test subset of `data`.}
 }
 \value{
-A list containing:
-
-Accuracy.Table for the forecast horizon against the test sample.
-
-test: the test set
-
-train: the training set
-
-Model.Fits: the model fits
-
-Model.Forecasts: the forecasts
-
-Min.Model: the minimum model by MAE
-
-Min.Report: the minimum model report
-
-Min.Res.Plot: the gg_tsdisplay for the minimum model
-
-Min.Forecast.Plot: a plot of the minimum forecast by MAE
+A list containing: \itemize{
+\item **Accuracy.Table**: `accuracy` for the forecast horizon against the test sample.
+\item **test**: the test set
+\item **train**: the training set
+\item **Model.Fits**: the model fits
+\item **Model.Forecasts**: the forecasts
+\item **Min.Model**: the minimum model by MAE
+\item **Min.Report**: the minimum model report
+\item **Min.Res.Plot**: the gg_tsdisplay for the minimum model
+\item **Min.Forecast.Plot**: a plot of the minimum forecast by MAE
+}
 }
 \description{
 Function to choose optimal forecast model for monthly data
