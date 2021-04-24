@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/index.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/DayWModelFitter.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/DayWModelPicker.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/MonthModelFitter.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/MonthModelPicker.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/NWSD.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/NWSM.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/SNWSDPDX.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/reexports.html</loc>
+  </url>
+</urlset>
