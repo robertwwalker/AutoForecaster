@@ -16,3 +16,19 @@ devtools::install_github("robertwwalker/AutoForecaster")
 ```
 library(AutoForecaster)
 ```
+
+The package contains two (current) forecasting functions.
+
+```
+DayWModelPicker(data, Outcome, index, H.Horizon=14)
+MonthModelPicker(data, Outcome, index, H.Horizon=12)
+```
+
+supported by
+
+```
+DayWModelFitter(data, Outcome)
+MonthModelFitter(data, Outcome)
+```
+
+that fits the models.
