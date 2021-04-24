@@ -138,15 +138,15 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list containing:</p><ul>
-<li><p>**Accuracy.Table**: `accuracy` for the forecast horizon against the test sample.</p></li>
-<li><p>**test**: the test set</p></li>
-<li><p>**train**: the training set</p></li>
-<li><p>**Model.Fits**: the model fits</p></li>
-<li><p>**Model.Forecasts**: the forecasts</p></li>
-<li><p>**Min.Model**: the minimum model by MAE</p></li>
-<li><p>**Min.Report**: the minimum model report</p></li>
-<li><p>**Min.Res.Plot**: the gg_tsdisplay for the minimum model</p></li>
-<li><p>**Min.Forecast.Plot**: a plot of the minimum forecast by MAE</p></li>
+<li><p><strong>Accuracy.Table</strong>: accuracy for the forecast horizon against the test sample.</p></li>
+<li><p><strong>test</strong>: the test set</p></li>
+<li><p><strong>train</strong>: the training set</p></li>
+<li><p><strong>Model.Fits</strong>: the model fits</p></li>
+<li><p><strong>Model.Forecasts</strong>: the forecasts</p></li>
+<li><p><strong>Min.Model</strong>: the minimum model by MAE</p></li>
+<li><p><strong>Min.Report</strong>: the minimum model report</p></li>
+<li><p><strong>Min.Res.Plot</strong>: the gg_tsdisplay for the minimum model</p></li>
+<li><p><strong>Min.Forecast.Plot</strong>: a plot of the minimum forecast by MAE</p></li>
 </ul>
 
 
@@ -161,7 +161,22 @@
 #&gt; <span class='warning'>[1] The `urca` package must be installed to use this functionality. It can be installed with install.packages("urca")</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Month` first.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Month` first.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
-#&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Month` first.</span></div><div class='output co'>#&gt; $test
+#&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Month` first.</span></div><div class='output co'>#&gt; Series: MaxAvg 
+#&gt; Model: ETS(A,N,A) 
+#&gt;   Smoothing parameters:
+#&gt;     alpha = 0.1817322 
+#&gt;     gamma = 0.0001008462 
+#&gt; 
+#&gt;   Initial states:
+#&gt;         l        s1        s2        s3       s4       s5       s6       s7
+#&gt;  63.30714 -17.44621 -10.46094 0.6837303 12.23725 18.48901 18.54583 11.03021
+#&gt;        s8        s9       s10       s11       s12
+#&gt;  5.147654 -1.775394 -7.626994 -12.27733 -16.54682
+#&gt; 
+#&gt;   sigma^2:  7.0556
+#&gt; 
+#&gt;      AIC     AICc      BIC 
+#&gt; 1698.915 1701.179 1750.355 </div><div class='img'><img src='MonthModelPicker-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $test
 #&gt; </span><span style='color: #949494;'># A tsibble: 12 x 7 [1M]</span><span>
 #&gt;       MO    YR MaxAvg MinAvg Precip  Snow    Month
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;mth&gt;</span><span>
@@ -239,6 +254,14 @@
 #&gt;   .model .type    ME  RMSE   MAE   MPE  MAPE  MASE RMSSE    ACF1
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> ETS    Test  -</span><span style='color: #BB0000;'>2.23</span><span>  3.97  2.64 -</span><span style='color: #BB0000;'>4.02</span><span>  4.62   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.080</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
+#&gt; 
+#&gt; $Min.Report
+#&gt; </span><span style='color: #949494;'># A mable: 1 x 1</span><span>
+#&gt;            ETS
+#&gt;        </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;ETS(A,N,A)&gt;
+#&gt; 
+#&gt; $Min.Res.Plot
 #&gt; </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
