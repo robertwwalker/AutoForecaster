@@ -7,11 +7,12 @@
 #' data(SNWSDPDX)
 #' DayWModelFitter(SNWSDPDX, TX)
 #' @importFrom rlang ensym
+#' @import fabletools
+#' @import fable
 #' @import nnet
+#' @import urca
 #' @importFrom tsibble tsibble
 #' @importFrom magrittr %>%
-#' @import fabletools
-#' @importFrom fable ARIMA ETS NNETAR
 #' @importFrom fable.prophet prophet
 #' @importFrom dplyr mutate
 #' @export

@@ -10,8 +10,9 @@
 #' @importFrom tsibble tsibble
 #' @importFrom magrittr %>%
 #' @import nnet
+#' @import urca
 #' @import fabletools
-#' @importFrom fable ARIMA ETS NNETAR
+#' @import fable
 #' @importFrom fable.prophet prophet
 #' @importFrom dplyr mutate
 #' @export

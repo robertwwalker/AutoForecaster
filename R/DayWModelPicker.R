@@ -15,23 +15,23 @@
 #' @import distributional
 #' @import tsibble
 #' @import fpp3
-#' @importFrom feasts gg_tsresiduals
+#' @import feasts
 #' @importFrom magrittr %>%
 #' @return A list containing: \itemize{
-#' \item **Accuracy.Table**: `accuracy` for the forecast horizon against the test sample.
-#' \item **test**: the test set
-#' \item **train**: the training set
-#' \item **Model.Fits**: the model fits
-#' \item **Model.Forecasts**: the forecasts
-#' \item **Min.Model**: the minimum model by MAE
-#' \item **Min.Report**: the minimum model report
-#' \item **Min.Res.Plot**: the gg_tsdisplay for the minimum model
-#' \item **Min.Forecast.Plot**: a plot of the minimum forecast by MAE
+#' \item \strong{Accuracy.Table}: accuracy for the forecast horizon against the test sample.
+#' \item \strong{test}: the test set
+#' \item \strong{train}: the training set
+#' \item \strong{Model.Fits}: the model fits
+#' \item \strong{Model.Forecasts}: the forecasts
+#' \item \strong{Min.Model}: the minimum model by MAE
+#' \item \strong{Min.Report}: the minimum model report
+#' \item \strong{Min.Res.Plot NW}: the gg_tsdisplay for the minimum model
+#' \item \strong{Min.Forecast.Plot NW}: a plot of the minimum forecast by MAE
 #' }
 #' @export
 DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
   # Turn the symbols -- names that will make sense in their environments when called -- that the user supplies into symbolics.  This is the role of ensym.
-  Outcome <- enquo(Outcome)
+  Outcome <- ensym(Outcome)
   DateVar <- ensym(DateVar)
   # Create test using H.Horizon
   test <- slice_max(data, order_by=!!DateVar, n=H.Horizon) %>% as_tsibble(index=!!DateVar) # Create train
@@ -46,25 +46,25 @@ DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
   # Show the best fit
   Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1)
   # Report on the best fitting model
-#  Min.Report <- fits %>% select(.model=Min.Model$.model) %>% report()
+  Min.Report <- fits %>% select(Min.Model$.model) %>% report()
   # Create a plot of the time series residuals for the best fit
-#  Min.Res.Plot <- fits %>% select(.model=Min.Model$.model) %>% gg_tsresiduals()
+  Min.Res.Plot <- ( fits %>% select(Min.Model$.model) %>% gg_tsresiduals() )
   # Create a forecast plot for the best fitting model.
-#  Min.ForeCPlot <- filter(FC, .model==Min.Model$.model) %>%
+#  Min.ForeCPlot <- ( filter(FC, .model==Min.Model$.model) %>%
 #    autoplot() +
 #    autolayer(select(data, !!Outcome)) +
 #    theme_minimal() +
-#    labs(title="Winner Forecast")
+#    labs(title="Winner Forecast") )
   # Return a named list with all the stuff we calculated along the way.
   fit.list <- list(test=test,
                    train=train,
                    Model.Fits = fits,
                    Model.Forecasts = FC,
                    Accuracy.Table=Accuracy.Table,
-                   Min.Model = Min.Model
-#                   Min.Report = Min.Report,
-#                   Min.Res.Plot = Min.Res.Plot,
-#                   Min.Forecast.Plot = Min.ForeCPlot)
-)
+                   Min.Model = Min.Model,
+                   Min.Report = Min.Report,
+                   Min.Res.Plot = Min.Res.Plot
+#                   Forecast.Plot = Min.ForeCPlot
+                   )
   return(fit.list)
 }
