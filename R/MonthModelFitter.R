@@ -13,6 +13,7 @@
 #' @import urca
 #' @import fabletools
 #' @import fable
+#' @import feasts
 #' @importFrom fable.prophet prophet
 #' @importFrom dplyr mutate
 #' @export

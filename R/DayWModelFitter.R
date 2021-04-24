@@ -11,6 +11,7 @@
 #' @import fable
 #' @import nnet
 #' @import urca
+#' @import feasts
 #' @importFrom tsibble tsibble
 #' @importFrom magrittr %>%
 #' @importFrom fable.prophet prophet
