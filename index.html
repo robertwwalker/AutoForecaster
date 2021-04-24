@@ -59,9 +59,11 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<p>AutoForecaster</p>
+<div id="autoforecaster" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#autoforecaster" class="anchor"></a>AutoForecaster</h1></div>
 <p>AutoForecaster is an R package to automate the production of a collection of time series models applied to <code>tsibble</code> data structures defined by <code>index</code> and <code>key</code>.</p>
+<p><a href="https://robertwwalker.github.io/AutoForecaster">The pkgdown site</a></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -72,8 +74,15 @@ devtools::install_github("robertwwalker/AutoForecaster")</code></pre>
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <pre><code><a href="https://robertwwalker.github.io/AutoForecaster">library(AutoForecaster)</a></code></pre>
+<p>The package contains two (current) forecasting functions.</p>
+<pre><code><a href="reference/DayWModelPicker.html">DayWModelPicker(data, Outcome, index, H.Horizon=14)
+MonthModelPicker(data, Outcome, index, H.Horizon=12)</a></code></pre>
+<p>supported by</p>
+<pre><code><a href="reference/DayWModelFitter.html">DayWModelFitter(data, Outcome)
+MonthModelFitter(data, Outcome)</a></code></pre>
+<p>that fits the models.</p>
 </div>
-
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
