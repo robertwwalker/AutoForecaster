@@ -2,7 +2,7 @@
 % Please edit documentation in R/DayWModelFitter.R
 \name{DayWModelFitter}
 \alias{DayWModelFitter}
-\title{Function to choose optimal forecast model}
+\title{Function to estimate daily time series models}
 \usage{
 DayWModelFitter(data, Outcome)
 }
@@ -12,10 +12,18 @@ DayWModelFitter(data, Outcome)
 \item{Outcome}{A valid variable name for the Outcome to be modelled in in `data`.}
 }
 \value{
-A mable containing eleven columns.  3 Fourier and ARIMA models; 1 ARIMA, 1 ETS, 3 NNETAR (fourier 1,2,3) and a prophet
+A mable containing: \itemize{
+\item \strong{K=1,2,3}: ARIMA models with fourier(K=1,2,3)
+\item \strong{ARIMA}: an ARIMA model
+\item \strong{ETS}: an ETS model
+\item \strong{NNETAR(K=1,2,3)}: the model fits
+\item \strong{prophet.LWA}: a prophet model with weekly and annual seasons
+\item \strong{prophet.LW}: a prophet model with weekly seasons
+\item \strong{Combo1}: the average of ETS and ARIMA
+}
 }
 \description{
-Function to choose optimal forecast model
+Function to estimate daily time series models
 }
 \examples{
 data(SNWSDPDX)

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to choose optimal forecast model — DayWModelFitter • AutoForecaster</title>
+<title>Function to estimate daily time series models — DayWModelFitter • AutoForecaster</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Function to choose optimal forecast model — DayWModelFitter" />
-<meta property="og:description" content="Function to choose optimal forecast model" />
+<meta property="og:title" content="Function to estimate daily time series models — DayWModelFitter" />
+<meta property="og:description" content="Function to estimate daily time series models" />
 
 
 
@@ -103,13 +103,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to choose optimal forecast model</h1>
+    <h1>Function to estimate daily time series models</h1>
     
     <div class="hidden name"><code>DayWModelFitter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Function to choose optimal forecast model</p>
+    <p>Function to estimate daily time series models</p>
     </div>
 
     <pre class="usage"><span class='fu'>DayWModelFitter</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>Outcome</span><span class='op'>)</span></pre>
@@ -129,18 +129,27 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A mable containing eleven columns.  3 Fourier and ARIMA models; 1 ARIMA, 1 ETS, 3 NNETAR (fourier 1,2,3) and a prophet</p>
+    <p>A mable containing:</p><ul>
+<li><p><strong>K=1,2,3</strong>: ARIMA models with fourier(K=1,2,3)</p></li>
+<li><p><strong>ARIMA</strong>: an ARIMA model</p></li>
+<li><p><strong>ETS</strong>: an ETS model</p></li>
+<li><p><strong>NNETAR(K=1,2,3)</strong>: the model fits</p></li>
+<li><p><strong>prophet.LWA</strong>: a prophet model with weekly and annual seasons</p></li>
+<li><p><strong>prophet.LW</strong>: a prophet model with weekly seasons</p></li>
+<li><p><strong>Combo1</strong>: the average of ETS and ARIMA</p></li>
+</ul>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>SNWSDPDX</span><span class='op'>)</span>
 <span class='fu'>DayWModelFitter</span><span class='op'>(</span><span class='va'>SNWSDPDX</span>, <span class='va'>TX</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A mable: 1 x 10</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A mable: 1 x 11</span><span>
 #&gt;                       `K = 1`                     `K = 2`
 #&gt;                       </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;LM w/ ARIMA(1,0,2) errors&gt; &lt;LM w/ ARIMA(1,0,2) errors&gt;
-#&gt; </span><span style='color: #949494;'># … with 8 more variables: K = 3 &lt;model&gt;, ARIMA &lt;model&gt;, ETS &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet.LAA &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   Combo1 &lt;model&gt;</span><span></div></span></pre>
+#&gt; </span><span style='color: #949494;'># … with 9 more variables: K = 3 &lt;model&gt;, ARIMA &lt;model&gt;, ETS &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet.LWA &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   prophet.LW &lt;model&gt;, Combo1 &lt;model&gt;</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

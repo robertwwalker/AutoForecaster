@@ -1,8 +1,16 @@
-#' Function to choose optimal forecast model
+#' Function to estimate daily time series models
 #'
 #' @param data A tsibble.
 #' @param Outcome A valid variable name for the Outcome to be modelled in in `data`.
-#' @return A mable containing eleven columns.  3 Fourier and ARIMA models; 1 ARIMA, 1 ETS, 3 NNETAR (fourier 1,2,3) and a prophet
+#' @return A mable containing: \itemize{
+#' \item \strong{K=1,2,3}: ARIMA models with fourier(K=1,2,3)
+#' \item \strong{ARIMA}: an ARIMA model
+#' \item \strong{ETS}: an ETS model
+#' \item \strong{NNETAR(K=1,2,3)}: the model fits
+#' \item \strong{prophet.LWA}: a prophet model with weekly and annual seasons
+#' \item \strong{prophet.LW}: a prophet model with weekly seasons
+#' \item \strong{Combo1}: the average of ETS and ARIMA
+#' }
 #' @examples
 #' data(SNWSDPDX)
 #' DayWModelFitter(SNWSDPDX, TX)
@@ -28,8 +36,8 @@ DayWModelFitter <- function(data, Outcome) {
           NNET1 = NNETAR(!!Outcome ~ fourier(K=1)),
           NNET2 = NNETAR(!!Outcome ~ fourier(K=2)),
           NNET3 = NNETAR(!!Outcome ~ fourier(K=3)),
-          prophet.LAA = prophet(!!Outcome ~ growth(type="linear") + season(period=7)+season(name="annual")),
-          prophet.LAA = prophet(!!Outcome ~ growth(type="linear") + season(period=7))
+          prophet.LWA = prophet(!!Outcome ~ growth(type="linear") + season(period=7)+season(name="annual")),
+          prophet.LW = prophet(!!Outcome ~ growth(type="linear") + season(period=7))
           ) %>%
     mutate(Combo1 = (ARIMA + ETS)/2)
   return(fits)
