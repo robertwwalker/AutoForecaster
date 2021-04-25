@@ -33,5 +33,5 @@ Function to choose optimal daily forecast model
 }
 \examples{
 data(fb_returns)
-DaysModelPicker(fb_returns, daily.returns, trading_day, H.Horizon=15)
+DaysModelPicker(fb_returns, Outcome=daily.returns, DateVar=trading_day, H.Horizon=15)
 }

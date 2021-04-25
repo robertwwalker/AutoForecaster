@@ -6,7 +6,7 @@
 #' @param H.Horizon An integer for the forecast horizon/test subset of `data`.
 #' @examples
 #' data(fb_returns)
-#' DaysModelPicker(fb_returns, daily.returns, trading_day, H.Horizon=15)
+#' DaysModelPicker(fb_returns, Outcome=daily.returns, DateVar=trading_day, H.Horizon=15)
 #' @importFrom rlang ensym
 #' @import ggplot2
 #' @importFrom dplyr slice_max slice_min anti_join select filter
