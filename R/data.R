@@ -61,7 +61,26 @@
 #'   \item{Quarter}{yearquarter: a yearquarter (1941 Q1--2019 Q4)}
 #'   \item{TX}{average maximum temperature F (39--87.5)}
 #'   \item{TN}{average maximum temperature F (27.97--61.4)}
-#'   \item{PR}{Total precipitation in in (0--15.24)}
-#'   \item{SN}{Total snow in in (0--19)}
+#'   \item{PR}{Total precipitation in inches (0--15.24)}
+#'   \item{SN}{Total snow in inches (0--19)}
 #' }
 "NWSQ"
+
+#' Facebook Returns [fb_returns]
+#'
+#' A daily dataset of stock price data and returns for Facebook from 2013 through the end of 2016.
+#'
+#' @format A data frame with 1008 rows and 8 variables:
+#' \describe{
+#'   \item{symbol}{Facebook's ticker ("FB")}
+#'   \item{date}{a calendar date (2013-01-02--2016-12-30)}
+#'   \item{open}{opening price (22.99--133.5)}
+#'   \item{high}{high price for the day (23.09--133.50)}
+#'   \item{low}{low price for the day (0--19)}
+#'   \item{close}{closing price for the day (23.09--133.50)}
+#'   \item{volume}{shares traded for the day (5913100--365457900)}
+#'   \item{adjusted}{adjusted closing price for the day (22.90--133.28)}
+#'   \item{daily.returns}{daily returns for the trading day (-0.069--0.296)}
+#'   \item{trading_day}{the trading day (1--1008)}
+#' }
+"fb_returns"

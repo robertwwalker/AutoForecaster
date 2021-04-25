@@ -10,8 +10,8 @@ A data frame with 316 rows and 5 variables:
   \item{Quarter}{yearquarter: a yearquarter (1941 Q1--2019 Q4)}
   \item{TX}{average maximum temperature F (39--87.5)}
   \item{TN}{average maximum temperature F (27.97--61.4)}
-  \item{PR}{Total precipitation in in (0--15.24)}
-  \item{SN}{Total snow in in (0--19)}
+  \item{PR}{Total precipitation in inches (0--15.24)}
+  \item{SN}{Total snow in inches (0--19)}
 }
 }
 \usage{
