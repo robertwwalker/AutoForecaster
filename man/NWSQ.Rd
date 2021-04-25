@@ -18,7 +18,7 @@ A data frame with 316 rows and 5 variables:
 NWSQ
 }
 \description{
-A quarterly dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+A quarterly tsibble (index=Quarter) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 The variables are as follows [as obtained from the national weather service]:
 }
 \keyword{datasets}

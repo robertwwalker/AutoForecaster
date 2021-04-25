@@ -3,9 +3,9 @@
 \docType{data}
 \name{fb_returns}
 \alias{fb_returns}
-\title{Facebook Returns [fb_returns]}
+\title{Facebook daily returns[fb_returns]}
 \format{
-A data frame with 1008 rows and 8 variables:
+A tsibble (index=trading_day) with 1008 rows and 8 variables:
 \describe{
   \item{symbol}{Facebook's ticker ("FB")}
   \item{date}{a calendar date (2013-01-02--2016-12-30)}
@@ -23,6 +23,6 @@ A data frame with 1008 rows and 8 variables:
 fb_returns
 }
 \description{
-A daily dataset of stock price data and returns for Facebook from 2013 through the end of 2016.
+A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016.
 }
 \keyword{datasets}

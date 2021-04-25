@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portland, Oregon Quarterly Weather Data [NWSQ] — NWSQ • AutoForecaster</title>
+<title>Facebook daily returns[fb_returns] — fb_returns • AutoForecaster</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Portland, Oregon Quarterly Weather Data [NWSQ] — NWSQ" />
-<meta property="og:description" content="A quarterly tsibble (index=Quarter) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
-The variables are as follows [as obtained from the national weather service]:" />
+<meta property="og:title" content="Facebook daily returns[fb_returns] — fb_returns" />
+<meta property="og:description" content="A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016." />
 
 
 
@@ -104,27 +103,31 @@ The variables are as follows [as obtained from the national weather service]:" /
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Portland, Oregon Quarterly Weather Data [NWSQ]</h1>
+    <h1>Facebook daily returns[fb_returns]</h1>
     
-    <div class="hidden name"><code>NWSQ.Rd</code></div>
+    <div class="hidden name"><code>fb_returns.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A quarterly tsibble (index=Quarter) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
-The variables are as follows [as obtained from the national weather service]:</p>
+    <p>A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016.</p>
     </div>
 
-    <pre class="usage"><span class='va'>NWSQ</span></pre>
+    <pre class="usage"><span class='va'>fb_returns</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 316 rows and 5 variables:</p><dl>
-  <dt>Quarter</dt><dd><p>yearquarter: a yearquarter (1941 Q1--2019 Q4)</p></dd>
-  <dt>TX</dt><dd><p>average maximum temperature F (39--87.5)</p></dd>
-  <dt>TN</dt><dd><p>average maximum temperature F (27.97--61.4)</p></dd>
-  <dt>PR</dt><dd><p>Total precipitation in inches (0--15.24)</p></dd>
-  <dt>SN</dt><dd><p>Total snow in inches (0--19)</p></dd>
+    <p>A tsibble (index=trading_day) with 1008 rows and 8 variables:</p><dl>
+  <dt>symbol</dt><dd><p>Facebook's ticker ("FB")</p></dd>
+  <dt>date</dt><dd><p>a calendar date (2013-01-02--2016-12-30)</p></dd>
+  <dt>open</dt><dd><p>opening price (22.99--133.5)</p></dd>
+  <dt>high</dt><dd><p>high price for the day (23.09--133.50)</p></dd>
+  <dt>low</dt><dd><p>low price for the day (0--19)</p></dd>
+  <dt>close</dt><dd><p>closing price for the day (23.09--133.50)</p></dd>
+  <dt>volume</dt><dd><p>shares traded for the day (5913100--365457900)</p></dd>
+  <dt>adjusted</dt><dd><p>adjusted closing price for the day (22.90--133.28)</p></dd>
+  <dt>daily.returns</dt><dd><p>daily returns for the trading day (-0.069--0.296)</p></dd>
+  <dt>trading_day</dt><dd><p>the trading day (1--1008)</p></dd>
 
 </dl>
 

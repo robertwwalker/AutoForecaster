@@ -3,7 +3,7 @@
 \docType{data}
 \name{SNWSDPDX}
 \alias{SNWSDPDX}
-\title{Portland, Oregon Weather Data [SNWSDPDX]}
+\title{Shortened Portland, Oregon Daily Weather Data [SNWSDPDX]}
 \format{
 A data frame with 1095 rows and 8 variables:
 \describe{
@@ -21,7 +21,7 @@ A data frame with 1095 rows and 8 variables:
 SNWSDPDX
 }
 \description{
-A shortened daily dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts for 2017 to 2019.
+A shortened daily tsibble (index=date) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts for 2017 to 2019.
 The variables are as follows [as obtained from the national weather service]:
 }
 \keyword{datasets}

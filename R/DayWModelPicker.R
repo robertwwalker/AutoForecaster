@@ -1,4 +1,4 @@
-#' Function to choose optimal daily forecast model
+#' Function to choose optimal daily seasonal forecast model
 #'
 #' @param data A daily tsibble.
 #' @param Outcome A valid variable name for the Outcome to be modelled in in `data`.

@@ -1,6 +1,6 @@
-#' Portland, Oregon Weather Data [NWSM]
+#' Portland, Oregon Monthly Weather Data [NWSM]
 #'
-#' A monthly dataset for Portland, Oregon containing the average monthly maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+#' A monthly tsibble (index = Month) for Portland, Oregon containing the average monthly maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 #' The variables are as follows [as obtained from the national weather service]:
 #'
 #' @format A data frame with 240 rows and 7 variables:
@@ -15,9 +15,9 @@
 #' }
 "NWSM"
 
-#' Portland, Oregon Weather Data [NWSD]
+#' Portland, Oregon Daily Weather Data [NWSD]
 #'
-#' A daily dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+#' A daily tsibble (index=date) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 #' The variables are as follows [as obtained from the national weather service]:
 #'
 #' @format A data frame with 5478 rows and 8 variables:
@@ -33,9 +33,9 @@
 #' }
 "NWSD"
 
-#' Portland, Oregon Weather Data [SNWSDPDX]
+#' Shortened Portland, Oregon Daily Weather Data [SNWSDPDX]
 #'
-#' A shortened daily dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts for 2017 to 2019.
+#' A shortened daily tsibble (index=date) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts for 2017 to 2019.
 #' The variables are as follows [as obtained from the national weather service]:
 #'
 #' @format A data frame with 1095 rows and 8 variables:
@@ -53,7 +53,7 @@
 
 #' Portland, Oregon Quarterly Weather Data [NWSQ]
 #'
-#' A quarterly dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+#' A quarterly tsibble (index=Quarter) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 #' The variables are as follows [as obtained from the national weather service]:
 #'
 #' @format A data frame with 316 rows and 5 variables:
@@ -66,11 +66,11 @@
 #' }
 "NWSQ"
 
-#' Facebook Returns [fb_returns]
+#' Facebook daily returns[fb_returns]
 #'
-#' A daily dataset of stock price data and returns for Facebook from 2013 through the end of 2016.
+#' A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016.
 #'
-#' @format A data frame with 1008 rows and 8 variables:
+#' @format A tsibble (index=trading_day) with 1008 rows and 8 variables:
 #' \describe{
 #'   \item{symbol}{Facebook's ticker ("FB")}
 #'   \item{date}{a calendar date (2013-01-02--2016-12-30)}

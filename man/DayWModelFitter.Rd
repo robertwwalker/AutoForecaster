@@ -2,7 +2,7 @@
 % Please edit documentation in R/DayWModelFitter.R
 \name{DayWModelFitter}
 \alias{DayWModelFitter}
-\title{Function to estimate daily time series models}
+\title{Function to estimate daily seasonal time series models}
 \usage{
 DayWModelFitter(data, Outcome)
 }
@@ -23,7 +23,7 @@ A mable containing: \itemize{
 }
 }
 \description{
-Function to estimate daily time series models
+Function to estimate daily seasonal time series models
 }
 \examples{
 data(SNWSDPDX)

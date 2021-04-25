@@ -2,7 +2,7 @@
 % Please edit documentation in R/DayWModelPicker.R
 \name{DayWModelPicker}
 \alias{DayWModelPicker}
-\title{Function to choose optimal daily forecast model}
+\title{Function to choose optimal daily seasonal forecast model}
 \usage{
 DayWModelPicker(data, Outcome, DateVar, H.Horizon = 14)
 }
@@ -29,7 +29,7 @@ A list containing: \itemize{
 }
 }
 \description{
-Function to choose optimal daily forecast model
+Function to choose optimal daily seasonal forecast model
 }
 \examples{
 data(SNWSDPDX)

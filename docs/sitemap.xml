@@ -10,6 +10,12 @@
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/DayWModelPicker.html</loc>
   </url>
   <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/DaysModelFitter.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/DaysModelPicker.html</loc>
+  </url>
+  <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/MonthModelFitter.html</loc>
   </url>
   <url>
@@ -32,6 +38,9 @@
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/SNWSDPDX.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/fb_returns.html</loc>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/reexports.html</loc>

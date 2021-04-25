@@ -3,7 +3,7 @@
 \docType{data}
 \name{NWSD}
 \alias{NWSD}
-\title{Portland, Oregon Weather Data [NWSD]}
+\title{Portland, Oregon Daily Weather Data [NWSD]}
 \format{
 A data frame with 5478 rows and 8 variables:
 \describe{
@@ -21,7 +21,7 @@ A data frame with 5478 rows and 8 variables:
 NWSD
 }
 \description{
-A daily dataset for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+A daily tsibble (index=date) for Portland, Oregon containing the daily maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 The variables are as follows [as obtained from the national weather service]:
 }
 \keyword{datasets}

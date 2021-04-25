@@ -1,4 +1,4 @@
-#' Function to estimate daily time series models
+#' Function to estimate daily seasonal time series models
 #'
 #' @param data A tsibble.
 #' @param Outcome A valid variable name for the Outcome to be modelled in in `data`.

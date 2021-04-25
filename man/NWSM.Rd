@@ -3,7 +3,7 @@
 \docType{data}
 \name{NWSM}
 \alias{NWSM}
-\title{Portland, Oregon Weather Data [NWSM]}
+\title{Portland, Oregon Monthly Weather Data [NWSM]}
 \format{
 A data frame with 240 rows and 7 variables:
 \describe{
@@ -20,7 +20,7 @@ A data frame with 240 rows and 7 variables:
 NWSM
 }
 \description{
-A monthly dataset for Portland, Oregon containing the average monthly maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
+A monthly tsibble (index = Month) for Portland, Oregon containing the average monthly maximum, minimum temperatures in degrees Fahrenheit and precipitation and snow amounts.
 The variables are as follows [as obtained from the national weather service]:
 }
 \keyword{datasets}
