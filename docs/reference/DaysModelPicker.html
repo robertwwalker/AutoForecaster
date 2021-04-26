@@ -152,7 +152,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>fb_returns</span><span class='op'>)</span>
-<span class='fu'>DaysModelPicker</span><span class='op'>(</span><span class='va'>fb_returns</span>, <span class='va'>daily.returns</span>, <span class='va'>trading_day</span>, H.Horizon<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>
+<span class='fu'>DaysModelPicker</span><span class='op'>(</span><span class='va'>fb_returns</span>, Outcome<span class='op'>=</span><span class='va'>daily.returns</span>, DateVar<span class='op'>=</span><span class='va'>trading_day</span>, H.Horizon<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `trading_day` first.</span></div><div class='output co'>#&gt; <span class='message'>Joining, by = c("symbol", "date", "open", "high", "low", "close", "volume", "adjusted", "daily.returns", "trading_day")</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 1 error encountered for K = 1</span>
 #&gt; <span class='warning'>[1] K must be not be greater than period/2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 1 error encountered for K = 2</span>

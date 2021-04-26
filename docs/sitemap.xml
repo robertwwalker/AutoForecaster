@@ -4,6 +4,9 @@
     <loc>https://robertwwalker.github.io/AutoForecaster/index.html</loc>
   </url>
   <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/BetweenData.html</loc>
+  </url>
+  <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/DayWModelFitter.html</loc>
   </url>
   <url>
@@ -14,6 +17,9 @@
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/DaysModelPicker.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/FANG.html</loc>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/MonthModelFitter.html</loc>
@@ -40,9 +46,15 @@
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/SNWSDPDX.html</loc>
   </url>
   <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/TradingDayCreator.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/WithinData.html</loc>
+  </url>
+  <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/fb_returns.html</loc>
   </url>
   <url>
-    <loc>https://robertwwalker.github.io/AutoForecaster/reference/reexports.html</loc>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/xtsum.html</loc>
   </url>
 </urlset>

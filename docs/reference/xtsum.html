@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Objects exported from other packages — reexports • AutoForecaster</title>
+<title>xtsum: A function to create time-series cross-section summaries in R — xtsum • AutoForecaster</title>
 
 
 <!-- jquery -->
@@ -39,13 +39,8 @@
 
 
 
-<meta property="og:title" content="Objects exported from other packages — reexports" />
-<meta property="og:description" content="These objects are imported from other packages. Follow the links
-below to see their documentation.
-
-  magrittr%&amp;gt;%
-
-" />
+<meta property="og:title" content="xtsum: A function to create time-series cross-section summaries in R — xtsum" />
+<meta property="og:description" content="xtsum: A function to create time-series cross-section summaries in R" />
 
 
 
@@ -108,23 +103,57 @@ below to see their documentation.
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Objects exported from other packages</h1>
+    <h1>xtsum: A function to create time-series cross-section summaries in R</h1>
     
-    <div class="hidden name"><code>reexports.Rd</code></div>
+    <div class="hidden name"><code>xtsum.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These objects are imported from other packages. Follow the links
-below to see their documentation.</p>
-<dl>
-  <dt>magrittr</dt><dd><p><code>%&gt;%</code></p></dd>
-
-</dl>
+    <p>xtsum: A function to create time-series cross-section summaries in R</p>
     </div>
 
+    <pre class="usage"><span class='fu'>xtsum</span><span class='op'>(</span><span class='va'>formula</span>, <span class='va'>data</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>formula</th>
+      <td><p>A one sided formula; (key ~ .)</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>A tidyquant daily OHLC tibble.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>data.frame A data frame with between and within data</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>xtsum</span><span class='op'>(</span><span class='va'>symbol</span> <span class='op'>~</span> <span class='va'>.</span>, data<span class='op'>=</span><span class='va'>FANG</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;                O.mean         O.sd      O.min        O.max      O.SumSQ  O.N
+#&gt; open          382.696      283.983   22.99000 1.226802e+03 3.250852e+08 4032
+#&gt; high          386.380      285.849   23.09000 1.228882e+03 3.293708e+08 4032
+#&gt; low           378.665      281.805   22.67000 1.218602e+03 3.201169e+08 4032
+#&gt; close         382.644      283.859   22.90000 1.220172e+03 3.248023e+08 4032
+#&gt; volume   16489748.661 22355128.595 7900.00000 3.654579e+08 2.014499e+18 4032
+#&gt; adjusted      297.123      252.150   13.14429 8.443600e+02 2.562889e+08 4032
+#&gt;                B.mean         B.sd        B.min        B.max B.Units B.t.bar
+#&gt; open          382.696      278.531 7.751772e+01 7.318607e+02       4    1008
+#&gt; high          386.380      280.371 7.836491e+01 7.373994e+02       4    1008
+#&gt; low           378.665      276.401 7.659725e+01 7.256351e+02       4    1008
+#&gt; close         382.644      278.414 7.751306e+01 7.316277e+02       4    1008
+#&gt; volume   16489748.661 17481375.050 2.644115e+06 4.000788e+07       4    1008
+#&gt; adjusted      297.123      262.825 7.167325e+01 5.872429e+02       4    1008
+#&gt;                  W.sd         W.min        W.max      W.SumSQ Within.Ovr.Ratio
+#&gt; open          149.825 -2.372085e+02 4.949415e+02 9.048544e+07            0.278
+#&gt; high          150.794 -2.414211e+02 4.914827e+02 9.165990e+07            0.278
+#&gt; low           148.666 -2.380729e+02 4.929670e+02 8.909160e+07            0.278
+#&gt; close         149.753 -2.390755e+02 4.885443e+02 9.039854e+07            0.278
+#&gt; volume   16446764.430 -3.409478e+07 3.254500e+08 1.090370e+18            0.541
+#&gt; adjusted      108.438 -2.361584e+02 3.922990e+02 4.739956e+07            0.185</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
