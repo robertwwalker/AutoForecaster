@@ -1,0 +1,76 @@
+#' xtsum: A function to create time-series cross-section summaries in R
+#'
+#' @param data A tidyquant daily OHLC tibble.
+#' @param formula A one sided formula; (key ~ .) 
+#' @return data.frame A data frame with between and within data
+#' @examples
+#' xtsum(symbol ~ ., data=FANG)
+#' @import tsibble
+#' @importFrom stats sd terms
+#' @import dplyr
+#' @importFrom purrr map_dfr
+#' @importFrom janitor tabyl
+#' @importFrom magrittr %>%
+#' @export
+xtsum <- function(formula, data) {
+  pform <- terms(formula, data=data)
+  # unit captures the lhs of the formula
+  unit <- pform[[2]]
+  # grab 
+  vars <- attr(pform, "term.labels")
+  # Add data.frame to strip other attributes.
+  data <- data.frame(data)
+  # Get classes of the variables
+  cls <- sapply(data, class)
+  # 8.18.2020 adapted the below line to handle factors and characters by selecting unit
+  data <- data %>% select(which(cls %in% c("numeric","integer")),unit)
+  # Get the variable names to summarise
+  varnames <- intersect(names(data),vars)
+  # The actual summary function for some variable
+  sumfunc <- function(data=data, varname, unit) {
+    loc.unit <- enquo(unit)
+    varname <- ensym(varname)
+    ores <- data %>% 
+      filter(!is.na(!! varname)==TRUE) %>% 
+      summarise(
+      O.mean=round(mean(`$`(data, !! varname), na.rm=TRUE), digits=3),
+      O.sd=round(sd(`$`(data, !! varname), na.rm=TRUE), digits=3), 
+      O.min = min(`$`(data, !! varname), na.rm=TRUE), 
+      O.max=max(`$`(data, !! varname), na.rm=TRUE), 
+      O.SumSQ=round(sum(scale(`$`(data, !! varname), center=TRUE, scale=FALSE)^2, na.rm=TRUE), digits=3), 
+      O.N=sum(as.numeric((!is.na(`$`(data, !! varname))))))
+    bmeans <- data %>% 
+      filter(!is.na(!! varname)==TRUE) %>% 
+      group_by(!! loc.unit) %>% 
+      summarise(
+      meanx=mean(`$`(.data, !! varname), na.rm=T), 
+      t.count=sum(as.numeric(!is.na(`$`(.data, !! varname)))))
+    bres <- bmeans %>% 
+      ungroup() %>% 
+      summarise(
+      B.mean = round(mean(meanx, na.rm=TRUE), digits=3),
+      B.sd = round(sd(meanx, na.rm=TRUE), digits=3),
+      B.min = min(meanx, na.rm=TRUE), 
+      B.max=max(meanx, na.rm=TRUE), 
+      B.Units=sum(as.numeric(!is.na(t.count))), 
+      B.t.bar=round(mean(t.count, na.rm=TRUE), digits=3))
+    wdat <- data %>% 
+      filter(!is.na(!! varname)==TRUE) %>% 
+      group_by(!! loc.unit) %>% 
+      mutate(
+      W.x = scale(`$`(.data,!! varname), scale=FALSE))
+    wres <- wdat %>% 
+      ungroup() %>% 
+      summarise(
+      W.sd=round(sd(W.x, na.rm=TRUE), digits=3), 
+      W.min=min(W.x, na.rm=TRUE), 
+      W.max=max(W.x, na.rm=TRUE), 
+      W.SumSQ=round(sum(W.x^2, na.rm=TRUE), digits=3))
+    W.Ratio <- round(wres$W.SumSQ/ores$O.SumSQ, digits=3)
+    return(c(ores,bres,wres,Within.Ovr.Ratio=W.Ratio))
+  }
+  res1 <- map_dfr(varnames, function(x) {sumfunc(data, !!x, !!unit)}) %>% data.frame()
+  rownames(res1) <- varnames
+#    Result=data.frame(t(res1)))
+  return(res1)
+}

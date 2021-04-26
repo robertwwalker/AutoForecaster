@@ -1,0 +1,1 @@
+utils::globalVariables(c("trading_day","sumfunc","W.x","meanx","t.count"))

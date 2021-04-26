@@ -76,11 +76,28 @@
 #'   \item{date}{a calendar date (2013-01-02--2016-12-30)}
 #'   \item{open}{opening price (22.99--133.5)}
 #'   \item{high}{high price for the day (23.09--133.50)}
-#'   \item{low}{low price for the day (0--19)}
-#'   \item{close}{closing price for the day (23.09--133.50)}
+#'   \item{low}{low price for the day (22.67--132.22)}
+#'   \item{close}{closing price for the day (23.09--133.3)}
 #'   \item{volume}{shares traded for the day (5913100--365457900)}
 #'   \item{adjusted}{adjusted closing price for the day (22.90--133.28)}
 #'   \item{daily.returns}{daily returns for the trading day (-0.069--0.296)}
 #'   \item{trading_day}{the trading day (1--1008)}
 #' }
 "fb_returns"
+
+#' FANG Stock Data [FANG]
+#'
+#' An irregular daily tibble (index=date, key=symbol) of stock prices in OHLC for Facebook, Amazon, Netflix, and Google.
+#'
+#' @format An irregular daily tsibble with 4032 rows and 8 variables:
+#' \describe{
+#'   \item{symbol}{a character ticker symbol (1--31)}
+#'   \item{date}{a date [in yy-mm-dd] (2013-01-02--2016-12-30)}
+#'   \item{open}{opening price (22.99--1226.80)}
+#'   \item{high}{high price for the day (23.09--1228.88)}
+#'   \item{low}{low price for the day (22.67--1218.60)}
+#'   \item{close}{closing price for the day (22.9--1220.20)}
+#'   \item{volume}{shares traded for the day (7900--365457900)}
+#'   \item{adjusted}{adjusted closing price for the day (13.14--844.36)}
+#' }
+"FANG"

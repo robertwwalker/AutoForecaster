@@ -11,8 +11,8 @@ A tsibble (index=trading_day) with 1008 rows and 8 variables:
   \item{date}{a calendar date (2013-01-02--2016-12-30)}
   \item{open}{opening price (22.99--133.5)}
   \item{high}{high price for the day (23.09--133.50)}
-  \item{low}{low price for the day (0--19)}
-  \item{close}{closing price for the day (23.09--133.50)}
+  \item{low}{low price for the day (22.67--132.22)}
+  \item{close}{closing price for the day (23.09--133.3)}
   \item{volume}{shares traded for the day (5913100--365457900)}
   \item{adjusted}{adjusted closing price for the day (22.90--133.28)}
   \item{daily.returns}{daily returns for the trading day (-0.069--0.296)}
