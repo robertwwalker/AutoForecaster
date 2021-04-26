@@ -4,6 +4,9 @@
     <loc>https://robertwwalker.github.io/AutoForecaster/index.html</loc>
   </url>
   <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/BetweenData.html</loc>
+  </url>
+  <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/DayWModelFitter.html</loc>
   </url>
   <url>
@@ -44,6 +47,9 @@
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/TradingDayCreator.html</loc>
+  </url>
+  <url>
+    <loc>https://robertwwalker.github.io/AutoForecaster/reference/WithinData.html</loc>
   </url>
   <url>
     <loc>https://robertwwalker.github.io/AutoForecaster/reference/fb_returns.html</loc>
