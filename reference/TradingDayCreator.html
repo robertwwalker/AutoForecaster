@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function to estimate monthly time series models — MonthModelFitter • AutoForecaster</title>
+<title>Function to create trading days/weeks from a tsibble/grouped tsibble — TradingDayCreator • AutoForecaster</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Function to estimate monthly time series models — MonthModelFitter" />
-<meta property="og:description" content="Function to estimate monthly time series models" />
+<meta property="og:title" content="Function to create trading days/weeks from a tsibble/grouped tsibble — TradingDayCreator" />
+<meta property="og:description" content="Function to create trading days/weeks from a tsibble/grouped tsibble" />
 
 
 
@@ -103,52 +103,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Function to estimate monthly time series models</h1>
+    <h1>Function to create trading days/weeks from a tsibble/grouped tsibble</h1>
     
-    <div class="hidden name"><code>MonthModelFitter.Rd</code></div>
+    <div class="hidden name"><code>TradingDayCreator.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Function to estimate monthly time series models</p>
+    <p>Function to create trading days/weeks from a tsibble/grouped tsibble</p>
     </div>
 
-    <pre class="usage"><span class='fu'>MonthModelFitter</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>Outcome</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>TradingDayCreator</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>DateVar</span>, <span class='va'>key</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>A tsibble.</p></td>
+      <td><p>A tidyquant daily OHLC tibble.</p></td>
     </tr>
     <tr>
-      <th>Outcome</th>
-      <td><p>A valid variable name for the Outcome to be modelled in in `data`.</p></td>
+      <th>DateVar</th>
+      <td><p>A time index for the tsibble.</p></td>
+    </tr>
+    <tr>
+      <th>key</th>
+      <td><p>The key for the tsibble supplied.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A mable containing:</p><ul>
-<li><p><strong>K=1,2,3</strong>: ARIMA models with fourier(K=1,2,3)</p></li>
-<li><p><strong>ARIMA</strong>: an ARIMA model</p></li>
-<li><p><strong>ETS</strong>: an ETS model</p></li>
-<li><p><strong>NNETAR(K=1,2,3)</strong>: the model fits</p></li>
-<li><p><strong>prophet</strong>: a prophet model with monthly seasons</p></li>
-<li><p><strong>Combo1</strong>: the average of ETS and ARIMA</p></li>
-</ul>
-
+    <p>A tsibble indexed by trading_day.  The function will also work with generic messy time units such as weeks.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>NWSM</span><span class='op'>)</span>
-<span class='fu'>MonthModelFitter</span><span class='op'>(</span><span class='va'>NWSM</span>, <span class='va'>MaxAvg</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A mable: 1 x 10</span><span>
-#&gt;                       `K = 1`                     `K = 2`
-#&gt;                       </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;LM w/ ARIMA(1,0,5) errors&gt; &lt;LM w/ ARIMA(0,1,1) errors&gt;
-#&gt; </span><span style='color: #949494;'># … with 8 more variables: K = 3 &lt;model&gt;, ARIMA &lt;model&gt;, ETS &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   Combo1 &lt;model&gt;</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>FANG</span><span class='op'>)</span>
+<span class='fu'>TradingDayCreator</span><span class='op'>(</span><span class='va'>FANG</span>, DateVar<span class='op'>=</span><span class='va'>date</span>, key<span class='op'>=</span><span class='va'>symbol</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Joining, by = "symbol"</span></div><div class='output co'>#&gt; <span class='message'>Joining, by = "date"</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tsibble: 4,032 x 9 [1]</span><span>
+#&gt; </span><span style='color: #949494;'># Key:       symbol [4]</span><span>
+#&gt;    symbol date        open  high   low close  volume adjusted trading_day
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> AMZN   2013-01-02  256.  258.  253.  257. 3</span><span style='text-decoration: underline;'>271</span><span>000     257.           1
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> AMZN   2013-01-03  257.  261.  256.  258. 2</span><span style='text-decoration: underline;'>750</span><span>900     258.           2
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> AMZN   2013-01-04  258.  260.  257.  259. 1</span><span style='text-decoration: underline;'>874</span><span>200     259.           3
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> AMZN   2013-01-07  263.  270.  263.  268. 4</span><span style='text-decoration: underline;'>910</span><span>000     268.           4
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> AMZN   2013-01-08  267.  269.  264.  266. 3</span><span style='text-decoration: underline;'>010</span><span>700     266.           5
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> AMZN   2013-01-09  268.  270.  265.  266. 2</span><span style='text-decoration: underline;'>265</span><span>600     266.           6
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> AMZN   2013-01-10  269.  269.  262.  265. 2</span><span style='text-decoration: underline;'>863</span><span>400     265.           7
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> AMZN   2013-01-11  265.  268.  264.  268. 2</span><span style='text-decoration: underline;'>413</span><span>300     268.           8
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> AMZN   2013-01-14  268   274.  268.  273. 4</span><span style='text-decoration: underline;'>275</span><span>000     273.           9
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> AMZN   2013-01-15  271.  273.  269.  272. 2</span><span style='text-decoration: underline;'>326</span><span>900     272.          10
+#&gt; </span><span style='color: #949494;'># … with 4,022 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Facebook daily returns[fb_returns] — fb_returns • AutoForecaster</title>
+<title>FANG Stock Data [FANG] — FANG • AutoForecaster</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Facebook daily returns[fb_returns] — fb_returns" />
-<meta property="og:description" content="A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016." />
+<meta property="og:title" content="FANG Stock Data [FANG] — FANG" />
+<meta property="og:description" content="An irregular daily tibble (index=date, key=symbol) of stock prices in OHLC for Facebook, Amazon, Netflix, and Google." />
 
 
 
@@ -103,31 +103,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Facebook daily returns[fb_returns]</h1>
+    <h1>FANG Stock Data [FANG]</h1>
     
-    <div class="hidden name"><code>fb_returns.Rd</code></div>
+    <div class="hidden name"><code>FANG.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A daily dataset (tsibble) of stock price data and returns for Facebook from 2013 through the end of 2016.</p>
+    <p>An irregular daily tibble (index=date, key=symbol) of stock prices in OHLC for Facebook, Amazon, Netflix, and Google.</p>
     </div>
 
-    <pre class="usage"><span class='va'>fb_returns</span></pre>
+    <pre class="usage"><span class='va'>FANG</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A tsibble (index=trading_day) with 1008 rows and 8 variables:</p><dl>
-  <dt>symbol</dt><dd><p>Facebook's ticker ("FB")</p></dd>
-  <dt>date</dt><dd><p>a calendar date (2013-01-02--2016-12-30)</p></dd>
-  <dt>open</dt><dd><p>opening price (22.99--133.5)</p></dd>
-  <dt>high</dt><dd><p>high price for the day (23.09--133.50)</p></dd>
-  <dt>low</dt><dd><p>low price for the day (22.67--132.22)</p></dd>
-  <dt>close</dt><dd><p>closing price for the day (23.09--133.3)</p></dd>
-  <dt>volume</dt><dd><p>shares traded for the day (5913100--365457900)</p></dd>
-  <dt>adjusted</dt><dd><p>adjusted closing price for the day (22.90--133.28)</p></dd>
-  <dt>daily.returns</dt><dd><p>daily returns for the trading day (-0.069--0.296)</p></dd>
-  <dt>trading_day</dt><dd><p>the trading day (1--1008)</p></dd>
+    <p>An irregular daily tsibble with 4032 rows and 8 variables:</p><dl>
+  <dt>symbol</dt><dd><p>a character ticker symbol (1--31)</p></dd>
+  <dt>date</dt><dd><p>a date [in yy-mm-dd] (2013-01-02--2016-12-30)</p></dd>
+  <dt>open</dt><dd><p>opening price (22.99--1226.80)</p></dd>
+  <dt>high</dt><dd><p>high price for the day (23.09--1228.88)</p></dd>
+  <dt>low</dt><dd><p>low price for the day (22.67--1218.60)</p></dd>
+  <dt>close</dt><dd><p>closing price for the day (22.9--1220.20)</p></dd>
+  <dt>volume</dt><dd><p>shares traded for the day (7900--365457900)</p></dd>
+  <dt>adjusted</dt><dd><p>adjusted closing price for the day (13.14--844.36)</p></dd>
 
 </dl>
 
