@@ -45,12 +45,19 @@ QuarterModelPicker <- function(data, Outcome, DateVar, H.Horizon=12) {
   # Compare train and test using accuracy
   Accuracy.Table <- FC %>% accuracy(test)
   # Show the best fit
-  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1)
+  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1, with_ties=FALSE)
   # Report on the best fitting model
   Min.Report <- fits %>% select(Min.Model$.model) %>% report()
   # Create a plot of the time series residuals for the best fit
   Min.Res.Plot <- ( fits %>% select(Min.Model$.model) %>% gg_tsresiduals() )
-  # Return a named list with all the stuff we calculated along the way.
+  # Forecast the Winner
+#  short.data <- data %>% select(!!Outcome)
+#  Forecast.Plot <- ( filter(FC, .model==Min.Model$.model) %>%
+#                       autoplot() +
+#                       autolayer(short.data) +
+#                       theme_minimal() +
+#                       labs(title="Winner Forecast") )
+    # Return a named list with all the stuff we calculated along the way.
   fit.list <- list(test=test,
                    train=train,
                    Model.Fits = fits,
@@ -59,7 +66,7 @@ QuarterModelPicker <- function(data, Outcome, DateVar, H.Horizon=12) {
                    Min.Model = Min.Model,
                    Min.Report = Min.Report,
                    Min.Res.Plot = Min.Res.Plot
-#                   Forecast.Plot = Forecast.Plot
+ #                  Forecast.Plot = Forecast.Plot
                    )
   return(fit.list)
 }

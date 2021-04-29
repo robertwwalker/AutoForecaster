@@ -45,15 +45,16 @@ MonthModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
   # Compare train and test using accuracy
   Accuracy.Table <- FC %>% accuracy(test)
   # Show the best fit
-  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1)
+  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1, with_ties=FALSE)
   # Report on the best fitting model
   Min.Report <- fits %>% select(Min.Model$.model) %>% report()
   # Create a plot of the time series residuals for the best fit
   Min.Res.Plot <- ( fits %>% select(Min.Model$.model) %>% gg_tsresiduals() )
+#  short.data <- data %>% select(!!Outcome)
   # Create a forecast plot for the best fitting model.
 #  Forecast.Plot <- ( filter(FC, .model==Min.Model$.model) %>%
 #    autoplot() +
-#    autolayer(select(data, !!Outcome)) +
+#    autolayer(short.data) +
 #    theme_minimal() +
 #    labs(title="Winner Forecast") )
   # Return a named list with all the stuff we calculated along the way.
@@ -65,7 +66,7 @@ MonthModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
                    Min.Model = Min.Model,
                    Min.Report = Min.Report,
                    Min.Res.Plot = Min.Res.Plot
-#                   Forecast.Plot = Forecast.Plot
+ #                  Forecast.Plot = Forecast.Plot
                    )
   return(fit.list)
 }

@@ -24,8 +24,8 @@ A list containing: \itemize{
 \item \strong{Model.Forecasts}: the forecasts
 \item \strong{Min.Model}: the minimum model by MAE
 \item \strong{Min.Report}: the minimum model report
-\item \strong{Min.Res.Plot NW}: the gg_tsdisplay for the minimum model
-\item \strong{Min.Forecast.Plot NW}: a plot of the minimum forecast by MAE
+\item \strong{Min.Res.Plot}: the gg_tsdisplay for the minimum model
+\item \strong{Min.Forecast.Plot}: a plot of the minimum forecast by MAE
 }
 }
 \description{

@@ -44,17 +44,17 @@ DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
   # Compare train and test using accuracy
   Accuracy.Table <- FC %>% accuracy(test)
   # Show the best fit
-  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1)
+  Min.Model <- slice_min(Accuracy.Table, order_by=MAE, n=1, with_ties=FALSE)
   # Report on the best fitting model
   Min.Report <- fits %>% select(Min.Model$.model) %>% report()
   # Create a plot of the time series residuals for the best fit
   Min.Res.Plot <- ( fits %>% select(Min.Model$.model) %>% gg_tsresiduals() )
-  # Create a forecast plot for the best fitting model.
+#  short.data <- data %>% select(!!Outcome)
 #  Min.ForeCPlot <- ( filter(FC, .model==Min.Model$.model) %>%
-#    autoplot() +
-#    autolayer(select(data, !!Outcome)) +
-#    theme_minimal() +
-#    labs(title="Winner Forecast") )
+#                       autoplot() +
+#                       autolayer(short.data) +
+#                       theme_minimal() +
+#                       labs(title="Winner Forecast") )
   # Return a named list with all the stuff we calculated along the way.
   fit.list <- list(test=test,
                    train=train,
@@ -63,8 +63,7 @@ DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
                    Accuracy.Table=Accuracy.Table,
                    Min.Model = Min.Model,
                    Min.Report = Min.Report,
-                   Min.Res.Plot = Min.Res.Plot
-#                   Forecast.Plot = Min.ForeCPlot
-                   )
+                   Min.Res.Plot = Min.Res.Plot)
+#                   Forecast.Plot = Min.ForeCPlot)
   return(fit.list)
 }
