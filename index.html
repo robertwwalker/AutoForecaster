@@ -62,7 +62,7 @@
 <div id="autoforecaster" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#autoforecaster" class="anchor"></a>AutoForecaster</h1></div>
-<p>AutoForecaster is an R package to automate the production of a collection of time series models applied to <code>tsibble</code> data structures defined by <code>index</code> and <code>key</code>.</p>
+<p>AutoForecaster is an R package to automate the production of a collection of time series models applied to <code>tsibble</code> data structures defined by <code>index</code> and <code>key</code>. It also provides some basic functions for working with <code>tsibble</code> data structures as cross-sectional time series or panel data.</p>
 <p><a href="https://robertwwalker.github.io/AutoForecaster">The pkgdown site</a> and the <a href="https://github.com/robertwwalker/AutoForecaster/">main github development page</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -85,6 +85,26 @@ MonthModelFitter(data, Outcome)
 DaysModelFitter(data, Outcome)
 QuarterModelFitter(data, Outcome)</a></code></pre>
 <p>that fits the models.</p>
+</div>
+<div id="withindata" class="section level2">
+<h2 class="hasAnchor">
+<a href="#withindata" class="anchor"></a>WithinData</h2>
+<p>Creates within data for all numeric and integer variables in a <code>tsibble</code>.</p>
+</div>
+<div id="betweendata" class="section level2">
+<h2 class="hasAnchor">
+<a href="#betweendata" class="anchor"></a>BetweenData</h2>
+<p>Creates between data for all numeric and integer variables in a <code>tsibble</code>.</p>
+</div>
+<div id="xtsum" class="section level2">
+<h2 class="hasAnchor">
+<a href="#xtsum" class="anchor"></a>xtsum</h2>
+<p>A function that creates a cross-sectional time series summary of numeric and integer data in a <code>tsibble</code>.</p>
+</div>
+<div id="tradingdaycreator" class="section level2">
+<h2 class="hasAnchor">
+<a href="#tradingdaycreator" class="anchor"></a>TradingDayCreator</h2>
+<p>A function to take a <code>tsibble</code> of tidyquant equities data, possibly starting at different times, and computing a <code>trading_day</code> index for a revised <code>tsibble</code>.</p>
 </div>
 </div>
   </div>
