@@ -154,7 +154,8 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>SNWSDPDX</span><span class='op'>)</span>
 <span class='fu'>DayWModelPicker</span><span class='op'>(</span><span class='va'>SNWSDPDX</span>, <span class='va'>TX</span>, <span class='va'>date</span>, H.Horizon<span class='op'>=</span><span class='fl'>14</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
-#&gt; <span class='warning'><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `date` first.</span></div><div class='output co'>#&gt; <span class='message'>Joining, by = c("YR", "MO", "Day", "TX", "TN", "PR", "SN", "date")</span></div><div class='output co'>#&gt; Series: TX 
+#&gt; <span class='warning'><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `date` first.</span></div><div class='output co'>#&gt; <span class='message'>Joining, by = c("YR", "MO", "Day", "TX", "TN", "PR", "SN", "date")</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 1 error encountered for K = 4</span>
+#&gt; <span class='warning'>[1] K must be not be greater than period/2</span></div><div class='output co'>#&gt; Series: TX 
 #&gt; Model: LM w/ ARIMA(0,1,3) errors 
 #&gt; 
 #&gt; Coefficients:
@@ -199,17 +200,17 @@
 #&gt; </span><span style='color: #949494;'># … with 1,071 more rows</span><span>
 #&gt; 
 #&gt; $Model.Fits
-#&gt; </span><span style='color: #949494;'># A mable: 1 x 10</span><span>
+#&gt; </span><span style='color: #949494;'># A mable: 1 x 11</span><span>
 #&gt;                       `K = 1`                     `K = 2`
 #&gt;                       </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;LM w/ ARIMA(0,1,3) errors&gt; &lt;LM w/ ARIMA(0,1,3) errors&gt;
-#&gt; </span><span style='color: #949494;'># … with 8 more variables: K = 3 &lt;model&gt;, ARIMA &lt;model&gt;, ETS &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'># … with 9 more variables: K = 3 &lt;model&gt;, K = 4 &lt;model&gt;, ARIMA &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   ETS &lt;model&gt;, NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet &lt;model&gt;,</span><span>
 #&gt; </span><span style='color: #949494;'>#   Combo1 &lt;model&gt;</span><span>
 #&gt; 
 #&gt; $Model.Forecasts
-#&gt; </span><span style='color: #949494;'># A fable: 140 x 4 [1D]</span><span>
-#&gt; </span><span style='color: #949494;'># Key:     .model [10]</span><span>
+#&gt; </span><span style='color: #949494;'># A fable: 154 x 4 [1D]</span><span>
+#&gt; </span><span style='color: #949494;'># Key:     .model [11]</span><span>
 #&gt;    .model date              TX .mean
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;dist&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'> 1</span><span> K = 1  2019-12-18 N(43, 31)  43.5
@@ -222,22 +223,23 @@
 #&gt; </span><span style='color: #BCBCBC;'> 8</span><span> K = 1  2019-12-25 N(46, 72)  46.4
 #&gt; </span><span style='color: #BCBCBC;'> 9</span><span> K = 1  2019-12-26 N(46, 75)  46.1
 #&gt; </span><span style='color: #BCBCBC;'>10</span><span> K = 1  2019-12-27 N(46, 78)  45.8
-#&gt; </span><span style='color: #949494;'># … with 130 more rows</span><span>
+#&gt; </span><span style='color: #949494;'># … with 144 more rows</span><span>
 #&gt; 
 #&gt; $Accuracy.Table
-#&gt; </span><span style='color: #949494;'># A tibble: 10 x 10</span><span>
-#&gt;    .model  .type    ME  RMSE   MAE   MPE  MAPE  MASE RMSSE  ACF1
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> ARIMA   Test   2.26  5.55  3.80  3.73  7.43   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.468
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Combo1  Test   3.12  5.95  4.15  5.53  8.04   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.446
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> ETS     Test   3.98  6.45  4.64  7.33  8.97   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.423
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> K = 1   Test   2.34  5.56  3.80  3.90  7.41   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.478
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> K = 2   Test   2.26  5.54  3.82  3.74  7.47   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.475
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> K = 3   Test   2.33  5.56  3.81  3.88  7.43   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.481
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> NNET1   Test   3.92  6.45  4.46  7.28  8.49   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.346
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> NNET2   Test   3.70  6.16  4.32  6.98  8.34   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.417
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> NNET3   Test   3.54  6.06  4.50  6.51  8.74   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.385
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> prophet Test   4.15  6.37  4.93  7.73  9.63   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> 0.337
+#&gt; </span><span style='color: #949494;'># A tibble: 11 x 10</span><span>
+#&gt;    .model  .type     ME   RMSE    MAE    MPE   MAPE  MASE RMSSE   ACF1
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> ARIMA   Test    2.26   5.55   3.80   3.73   7.43   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.468
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Combo1  Test    3.12   5.95   4.15   5.53   8.04   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.446
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> ETS     Test    3.98   6.45   4.64   7.33   8.97   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.423
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> K = 1   Test    2.34   5.56   3.80   3.90   7.41   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.478
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> K = 2   Test    2.26   5.54   3.82   3.74   7.47   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.475
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> K = 3   Test    2.33   5.56   3.81   3.88   7.43   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.481
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> K = 4   Test  </span><span style='color: #BB0000;'>NaN</span><span>    </span><span style='color: #BB0000;'>NaN</span><span>    </span><span style='color: #BB0000;'>NaN</span><span>    </span><span style='color: #BB0000;'>NaN</span><span>    </span><span style='color: #BB0000;'>NaN</span><span>      </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> </span><span style='color: #BB0000;'>NA</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> NNET1   Test    3.92   6.45   4.46   7.28   8.49   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.346
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> NNET2   Test    3.70   6.16   4.32   6.98   8.34   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.417
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> NNET3   Test    3.54   6.06   4.50   6.51   8.74   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.385
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> prophet Test    4.15   6.37   4.93   7.73   9.63   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.337
 #&gt; 
 #&gt; $Min.Model
 #&gt; </span><span style='color: #949494;'># A tibble: 1 x 10</span><span>

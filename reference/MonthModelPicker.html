@@ -231,17 +231,17 @@
 #&gt; </span><span style='color: #949494;'># … with 218 more rows</span><span>
 #&gt; 
 #&gt; $Model.Fits
-#&gt; </span><span style='color: #949494;'># A mable: 1 x 10</span><span>
+#&gt; </span><span style='color: #949494;'># A mable: 1 x 11</span><span>
 #&gt;                       `K = 1`                     `K = 2`
 #&gt;                       </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;LM w/ ARIMA(0,1,5) errors&gt; &lt;LM w/ ARIMA(0,1,1) errors&gt;
-#&gt; </span><span style='color: #949494;'># … with 8 more variables: K = 3 &lt;model&gt;, ARIMA &lt;model&gt;, ETS &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'># … with 9 more variables: K = 3 &lt;model&gt;, K = 4 &lt;model&gt;, ARIMA &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   ETS &lt;model&gt;, NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, NNET3 &lt;model&gt;, prophet &lt;model&gt;,</span><span>
 #&gt; </span><span style='color: #949494;'>#   Combo1 &lt;model&gt;</span><span>
 #&gt; 
 #&gt; $Model.Forecasts
-#&gt; </span><span style='color: #949494;'># A fable: 120 x 4 [1M]</span><span>
-#&gt; </span><span style='color: #949494;'># Key:     .model [10]</span><span>
+#&gt; </span><span style='color: #949494;'># A fable: 132 x 4 [1M]</span><span>
+#&gt; </span><span style='color: #949494;'># Key:     .model [11]</span><span>
 #&gt;    .model    Month    MaxAvg .mean
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;mth&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;dist&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'> 1</span><span> K = 1  2019 Jan N(48, 11)  48.1
@@ -254,10 +254,10 @@
 #&gt; </span><span style='color: #BCBCBC;'> 8</span><span> K = 1  2019 Aug N(81, 14)  81.1
 #&gt; </span><span style='color: #BCBCBC;'> 9</span><span> K = 1  2019 Sep N(75, 15)  75.1
 #&gt; </span><span style='color: #BCBCBC;'>10</span><span> K = 1  2019 Oct N(67, 15)  66.6
-#&gt; </span><span style='color: #949494;'># … with 110 more rows</span><span>
+#&gt; </span><span style='color: #949494;'># … with 122 more rows</span><span>
 #&gt; 
 #&gt; $Accuracy.Table
-#&gt; </span><span style='color: #949494;'># A tibble: 10 x 10</span><span>
+#&gt; </span><span style='color: #949494;'># A tibble: 11 x 10</span><span>
 #&gt;    .model  .type    ME  RMSE   MAE   MPE  MAPE  MASE RMSSE    ACF1
 #&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'> 1</span><span> ARIMA   Test  -</span><span style='color: #BB0000;'>1.32</span><span>  3.20  2.55 -</span><span style='color: #BB0000;'>2.01</span><span>  4.21   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.052</span><span style='text-decoration: underline;'>5</span><span>
@@ -266,10 +266,11 @@
 #&gt; </span><span style='color: #BCBCBC;'> 4</span><span> K = 1   Test  -</span><span style='color: #BB0000;'>2.41</span><span>  3.50  2.85 -</span><span style='color: #BB0000;'>4.32</span><span>  5.00   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.357</span><span> 
 #&gt; </span><span style='color: #BCBCBC;'> 5</span><span> K = 2   Test  -</span><span style='color: #BB0000;'>2.17</span><span>  3.93  2.75 -</span><span style='color: #BB0000;'>3.91</span><span>  4.77   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.056</span><span style='color: #BB0000;text-decoration: underline;'>7</span><span>
 #&gt; </span><span style='color: #BCBCBC;'> 6</span><span> K = 3   Test  -</span><span style='color: #BB0000;'>2.18</span><span>  3.93  2.73 -</span><span style='color: #BB0000;'>3.92</span><span>  4.73   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.055</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> NNET1   Test  -</span><span style='color: #BB0000;'>1.90</span><span>  4.27  3.21 -</span><span style='color: #BB0000;'>3.50</span><span>  5.78   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.042</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> NNET2   Test  -</span><span style='color: #BB0000;'>1.82</span><span>  4.69  3.53 -</span><span style='color: #BB0000;'>3.46</span><span>  6.42   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.010</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> NNET3   Test  -</span><span style='color: #BB0000;'>1.83</span><span>  5.12  3.70 -</span><span style='color: #BB0000;'>3.51</span><span>  6.76   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.063</span><span style='color: #BB0000;text-decoration: underline;'>9</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> prophet Test  -</span><span style='color: #BB0000;'>2.28</span><span>  4.30  3.03 -</span><span style='color: #BB0000;'>4.09</span><span>  5.24   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.011</span><span style='color: #BB0000;text-decoration: underline;'>9</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> K = 4   Test  -</span><span style='color: #BB0000;'>2.23</span><span>  3.97  2.71 -</span><span style='color: #BB0000;'>4.01</span><span>  4.74   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.067</span><span style='color: #BB0000;text-decoration: underline;'>9</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> NNET1   Test  -</span><span style='color: #BB0000;'>1.56</span><span>  4.43  3.23 -</span><span style='color: #BB0000;'>2.98</span><span>  5.95   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.032</span><span style='text-decoration: underline;'>5</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> NNET2   Test  -</span><span style='color: #BB0000;'>1.78</span><span>  4.82  3.48 -</span><span style='color: #BB0000;'>3.47</span><span>  6.38   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.030</span><span style='color: #BB0000;text-decoration: underline;'>8</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> NNET3   Test  -</span><span style='color: #BB0000;'>2.30</span><span>  5.19  3.88 -</span><span style='color: #BB0000;'>4.22</span><span>  7.01   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.048</span><span style='color: #BB0000;text-decoration: underline;'>3</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> prophet Test  -</span><span style='color: #BB0000;'>2.28</span><span>  4.30  3.03 -</span><span style='color: #BB0000;'>4.09</span><span>  5.24   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.011</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
 #&gt; 
 #&gt; $Min.Model
 #&gt; </span><span style='color: #949494;'># A tibble: 1 x 10</span><span>
