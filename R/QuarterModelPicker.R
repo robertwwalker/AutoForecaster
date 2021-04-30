@@ -17,7 +17,7 @@
 #' }
 #' @examples
 #' data(NWSQ)
-#' QuarterModelPicker(NWSQ, TX, Quarter, H.Horizon=12)
+#' QuarterModelPicker(NWSQ, Outcome=TX, DateVar=Quarter, H.Horizon=12)
 #' @importFrom rlang ensym
 #' @import ggplot2
 #' @import distributional

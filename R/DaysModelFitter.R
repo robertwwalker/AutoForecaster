@@ -28,14 +28,9 @@
 DaysModelFitter <- function(data, Outcome) {
   Outcome <- ensym(Outcome)
   fits <- data %>% as_tsibble() %>%
-    model(`K = 1` = ARIMA(!!Outcome ~ fourier(K=1)+PDQ(0,0,0)),
-          `K = 2` = ARIMA(!!Outcome ~ fourier(K=2)+PDQ(0,0,0)),
-          `K = 3` = ARIMA(!!Outcome ~ fourier(K=3)+PDQ(0,0,0)),
-          ARIMA = ARIMA(!!Outcome),
+    model(ARIMA = ARIMA(!!Outcome),
           ETS = ETS(!!Outcome),
-          NNET1 = NNETAR(!!Outcome ~ fourier(K=1)),
-          NNET2 = NNETAR(!!Outcome ~ fourier(K=2)),
-          NNET3 = NNETAR(!!Outcome ~ fourier(K=3)),
+          NNET1 = NNETAR(!!Outcome, n_networks =  30),
           prophet.Linear = prophet(!!Outcome ~ growth(type="linear")),
           prophet.Logis = prophet(!!Outcome ~ growth(type="logistic"))
     ) %>%
