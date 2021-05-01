@@ -17,7 +17,7 @@
 #' }
 #' @examples
 #' data(NWSQ)
-#' QuarterModelPicker(NWSQ, Outcome=TX, DateVar=Quarter, H.Horizon=12)
+#' QuarterModelPicker(NWSQ, Outcome=log(TX), DateVar=Quarter, H.Horizon=12)
 #' @importFrom rlang ensym
 #' @import ggplot2
 #' @import distributional
@@ -31,7 +31,7 @@
 #' @export
 QuarterModelPicker <- function(data, Outcome, DateVar, H.Horizon=12) {
   # Turn the symbols -- names that will make sense in their environments when called -- that the user supplies into symbolics.  This is the role of ensym.
-  Outcome <- ensym(Outcome)
+  Outcome <- enexpr(Outcome)
   DateVar <- ensym(DateVar)
   # Create test using H.Horizon
   test <- slice_max(data, order_by=!!DateVar, n=H.Horizon) 

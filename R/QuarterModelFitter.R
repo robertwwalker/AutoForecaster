@@ -4,11 +4,12 @@
 #' @param Outcome A valid variable name for the Outcome to be modelled in in `data`.
 #' @return A mable containing: \itemize{
 #' \item \strong{K=1,2,3}: ARIMA models with fourier(K=1,2,3)
-#' \item \strong{ARIMA}: an ARIMA model
+#' \item \strong{ARIMA, .T, .TS}: an ARIMA model .t (with trend) .ts (with trend and season)
 #' \item \strong{ETS}: an ETS model
-#' \item \strong{NNETAR(K=1,2,3)}: the model fits
+#' \item \strong{NNET}: the model fits of NNETAR with T (trend) TS (trend and season) and numbers indicate K
 #' \item \strong{prophet}: a prophet model
 #' \item \strong{Combo1}: the average of ETS and ARIMA
+#' \item \strong{Combo2}: the average of ETS, NNETT2 and ARIMA
 #' }
 #' @examples
 #' data(NWSQ)
@@ -25,16 +26,23 @@
 #' @importFrom dplyr mutate
 #' @export
 QuarterModelFitter <- function(data, Outcome) {
-  Outcome <- ensym(Outcome)
+  Outcome <- enexpr(Outcome)
   fits <- data %>%
     model(`K = 1` = ARIMA(!!Outcome ~ fourier(K=1)+PDQ(0,0,0)),
           `K = 2` = ARIMA(!!Outcome ~ fourier(K=2)+PDQ(0,0,0)),
           ARIMA = ARIMA(!!Outcome),
+          ARIMA.T = ARIMA(!!Outcome ~ trend()),
+          ARIMA.TS = ARIMA(!!Outcome ~ trend() + season()),
           ETS = ETS(!!Outcome),
+          NNETT = NNETAR(!!Outcome ~ trend()),
+          NNETTS = NNETAR(!!Outcome ~ trend() + season()),
+          NNETT1 = NNETAR(!!Outcome ~ trend() + fourier(K=1)),
+          NNETT2 = NNETAR(!!Outcome ~ trend() + fourier(K=2)),
           NNET1 = NNETAR(!!Outcome ~ fourier(K=1)),
           NNET2 = NNETAR(!!Outcome ~ fourier(K=2)),
-          prophet = prophet(!!Outcome ~ growth() + season("year", 4))
-  ) %>%
-    mutate(Combo1 = (ARIMA + ETS)/2)
+          prophet = prophet(!!Outcome ~ growth() + season("year", 12)),
+    ) %>%    
+    mutate(Combo1 = (ARIMA.TS + ETS)/2,
+           Combo2 = (NNETT2 + ARIMA.TS + ETS) / 3)
   return(fits)
 }

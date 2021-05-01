@@ -14,11 +14,12 @@ QuarterModelFitter(data, Outcome)
 \value{
 A mable containing: \itemize{
 \item \strong{K=1,2,3}: ARIMA models with fourier(K=1,2,3)
-\item \strong{ARIMA}: an ARIMA model
+\item \strong{ARIMA, .T, .TS}: an ARIMA model .t (with trend) .ts (with trend and season)
 \item \strong{ETS}: an ETS model
-\item \strong{NNETAR(K=1,2,3)}: the model fits
+\item \strong{NNET}: the model fits of NNETAR with T (trend) TS (trend and season) and numbers indicate K
 \item \strong{prophet}: a prophet model
 \item \strong{Combo1}: the average of ETS and ARIMA
+\item \strong{Combo2}: the average of ETS, NNETT2 and ARIMA
 }
 }
 \description{

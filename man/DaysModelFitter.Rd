@@ -9,14 +9,15 @@ DaysModelFitter(data, Outcome)
 \arguments{
 \item{data}{A tsibble.}
 
-\item{Outcome}{A valid variable name for the Outcome to be modelled in in `data`.}
+\item{Outcome}{A valid expression for the Outcome to be modelled in in `data`.}
 }
 \value{
 A mable containing: \itemize{
 \item \strong{K=1,2,3}: ARIMA models with fourier(K=1,2,3)
 \item \strong{ARIMA}: an ARIMA model
+\item \strong{ARIMA.T}: an ARIMA model with trend
 \item \strong{ETS}: an ETS model
-\item \strong{NNETAR(K=1,2,3)}: the model fits
+\item \strong{NNETAR}: the model fits from NNETAR with 30 networks
 \item \strong{prophet.Linear}: a prophet model with linear trend
 \item \strong{prophet.Logis}: a prophet model with logistic trend
 \item \strong{Combo1}: the average of ETS and ARIMA

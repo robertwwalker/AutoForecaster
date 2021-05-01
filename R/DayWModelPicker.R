@@ -26,12 +26,11 @@
 #' \item \strong{Min.Model}: the minimum model by MAE
 #' \item \strong{Min.Report}: the minimum model report
 #' \item \strong{Min.Res.Plot NW}: the gg_tsdisplay for the minimum model
-#' \item \strong{Min.Forecast.Plot NW}: a plot of the minimum forecast by MAE
 #' }
 #' @export
 DayWModelPicker <- function(data, Outcome, DateVar, H.Horizon=14) {
-  # Turn the symbols -- names that will make sense in their environments when called -- that the user supplies into symbolics.  This is the role of ensym.
-  Outcome <- ensym(Outcome)
+  # Turn the symbols -- names that will make sense in their environments when called -- that the user supplies into symbolics.  This is the role of ensym.  Do the same with the Outcome but an expression for lags or box_cox
+  Outcome <- enexpr(Outcome)
   DateVar <- ensym(DateVar)
   # Create test using H.Horizon
   test <- slice_max(data, order_by=!!DateVar, n=H.Horizon) %>% as_tsibble(index=!!DateVar) # Create train

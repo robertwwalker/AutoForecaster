@@ -33,5 +33,5 @@ Function to choose optimal forecast model for quarterly data
 }
 \examples{
 data(NWSQ)
-QuarterModelPicker(NWSQ, TX, Quarter, H.Horizon=12)
+QuarterModelPicker(NWSQ, Outcome=log(TX), DateVar=Quarter, H.Horizon=12)
 }
