@@ -152,21 +152,26 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>NWSQ</span><span class='op'>)</span>
-<span class='fu'>QuarterModelPicker</span><span class='op'>(</span><span class='va'>NWSQ</span>, <span class='va'>TX</span>, <span class='va'>Quarter</span>, H.Horizon<span class='op'>=</span><span class='fl'>12</span><span class='op'>)</span>
+<span class='fu'>QuarterModelPicker</span><span class='op'>(</span><span class='va'>NWSQ</span>, Outcome<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>TX</span><span class='op'>)</span>, DateVar<span class='op'>=</span><span class='va'>Quarter</span>, H.Horizon<span class='op'>=</span><span class='fl'>12</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Quarter` first.</span></div><div class='output co'>#&gt; <span class='message'>Joining, by = c("Quarter", "TX", "TN", "PR", "SN")</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Quarter` first.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Quarter` first.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Current temporal ordering may yield unexpected results.</span>
 #&gt; <span class='warning'></span><span style='color: #0000BB;'>ℹ</span><span> Suggest to sort by ``, `Quarter` first.</span></div><div class='output co'>#&gt; Series: TX 
-#&gt; Model: ARIMA(1,0,2)(0,1,1)[4] w/ drift 
+#&gt; Model: ETS(A,N,A) 
+#&gt; Transformation: log(TX) 
+#&gt;   Smoothing parameters:
+#&gt;     alpha = 0.1064772 
+#&gt;     gamma = 0.0001000001 
 #&gt; 
-#&gt; Coefficients:
-#&gt;          ar1      ma1     ma2     sma1  constant
-#&gt;       0.6870  -0.4961  0.0189  -0.9538    0.0085
-#&gt; s.e.  0.1846   0.1938  0.0768   0.0217    0.0041
+#&gt;   Initial states:
+#&gt;         l         s1        s2         s3         s4
+#&gt;  4.120824 -0.1299734 0.2409196 0.08730651 -0.1982527
 #&gt; 
-#&gt; sigma^2 estimated as 4.181:  log likelihood=-642.42
-#&gt; AIC=1296.84   AICc=1297.12   BIC=1319.06</div><div class='img'><img src='QuarterModelPicker-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $test
+#&gt;   sigma^2:  0.0013
+#&gt; 
+#&gt;       AIC      AICc       BIC 
+#&gt; -286.1324 -285.7541 -260.1132 </div><div class='img'><img src='QuarterModelPicker-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $test
 #&gt; </span><span style='color: #949494;'># A tsibble: 12 x 5 [1Q]</span><span>
 #&gt;    Quarter    TX    TN    PR    SN
 #&gt;      </span><span style='color: #949494;font-style: italic;'>&lt;qtr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
@@ -200,54 +205,63 @@
 #&gt; </span><span style='color: #949494;'># … with 294 more rows</span><span>
 #&gt; 
 #&gt; $Model.Fits
-#&gt; </span><span style='color: #949494;'># A mable: 1 x 8</span><span>
+#&gt; </span><span style='color: #949494;'># A mable: 1 x 15</span><span>
 #&gt;                       `K = 1`                     `K = 2`
 #&gt;                       </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>                     </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;LM w/ ARIMA(5,1,1) errors&gt; &lt;LM w/ ARIMA(1,1,3) errors&gt;
-#&gt; </span><span style='color: #949494;'># … with 6 more variables: ARIMA &lt;model&gt;, ETS &lt;model&gt;, NNET1 &lt;model&gt;,</span><span>
-#&gt; </span><span style='color: #949494;'>#   NNET2 &lt;model&gt;, prophet &lt;model&gt;, Combo1 &lt;model&gt;</span><span>
+#&gt; </span><span style='color: #949494;'># … with 13 more variables: ARIMA &lt;model&gt;, ARIMA.T &lt;model&gt;, ARIMA.TS &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   ETS &lt;model&gt;, NNETT &lt;model&gt;, NNETTS &lt;model&gt;, NNETT1 &lt;model&gt;, NNETT2 &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   NNET1 &lt;model&gt;, NNET2 &lt;model&gt;, prophet &lt;model&gt;, Combo1 &lt;model&gt;,</span><span>
+#&gt; </span><span style='color: #949494;'>#   Combo2 &lt;model&gt;</span><span>
 #&gt; 
 #&gt; $Model.Forecasts
-#&gt; </span><span style='color: #949494;'># A fable: 96 x 4 [1Q]</span><span>
-#&gt; </span><span style='color: #949494;'># Key:     .model [8]</span><span>
-#&gt;    .model Quarter         TX .mean
-#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;qtr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dist&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> K = 1  2017 Q1 N(51, 4.8)  50.8
-#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> K = 1  2017 Q2 N(69, 4.8)  68.9
-#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> K = 1  2017 Q3 N(78, 5.4)  78.3
-#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> K = 1  2017 Q4 N(55, 5.5)  55.4
-#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> K = 1  2018 Q1 N(51, 6.1)  50.7
-#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> K = 1  2018 Q2 N(69, 6.3)  69.0
-#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> K = 1  2018 Q3 N(78, 6.6)  78.3
-#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> K = 1  2018 Q4 N(56, 6.7)  55.9
-#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> K = 1  2019 Q1 N(50, 6.9)  50.4
-#&gt; </span><span style='color: #BCBCBC;'>10</span><span> K = 1  2019 Q2   N(69, 7)  69.2
-#&gt; </span><span style='color: #949494;'># … with 86 more rows</span><span>
+#&gt; </span><span style='color: #949494;'># A fable: 180 x 4 [1Q]</span><span>
+#&gt; </span><span style='color: #949494;'># Key:     .model [15]</span><span>
+#&gt;    .model Quarter                TX .mean
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;qtr&gt;</span><span>            </span><span style='color: #949494;font-style: italic;'>&lt;dist&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> K = 1  2017 Q1 t(N(3.9, 0.0014))  50.9
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> K = 1  2017 Q2 t(N(4.2, 0.0014))  68.9
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> K = 1  2017 Q3 t(N(4.4, 0.0015))  78.3
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> K = 1  2017 Q4   t(N(4, 0.0015))  55.2
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> K = 1  2018 Q1 t(N(3.9, 0.0016))  50.6
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> K = 1  2018 Q2 t(N(4.2, 0.0016))  69.1
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> K = 1  2018 Q3 t(N(4.4, 0.0017))  78.3
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> K = 1  2018 Q4   t(N(4, 0.0017))  55.6
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> K = 1  2019 Q1 t(N(3.9, 0.0017))  50.5
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> K = 1  2019 Q2 t(N(4.2, 0.0017))  69.2
+#&gt; </span><span style='color: #949494;'># … with 170 more rows</span><span>
 #&gt; 
 #&gt; $Accuracy.Table
-#&gt; </span><span style='color: #949494;'># A tibble: 8 x 10</span><span>
-#&gt;   .model  .type     ME  RMSE   MAE     MPE  MAPE  MASE RMSSE    ACF1
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> ARIMA   Test   0.168  2.32  1.85 -</span><span style='color: #BB0000;'>0.242</span><span>   3.03   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.030</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> Combo1  Test  -</span><span style='color: #BB0000;'>0.346</span><span>  2.32  1.92 -</span><span style='color: #BB0000;'>1.09</span><span>    3.23   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.020</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> ETS     Test  -</span><span style='color: #BB0000;'>0.861</span><span>  2.45  2.01 -</span><span style='color: #BB0000;'>1.95</span><span>    3.46   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.016</span><span style='color: #BB0000;text-decoration: underline;'>0</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> K = 1   Test   0.456  2.36  1.89  0.182   3.00   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.015</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> K = 2   Test   0.429  2.36  1.90  0.146   3.07   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.010</span><span style='color: #BB0000;text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> NNET1   Test   1.02   3.20  2.45  1.22    3.93   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.062</span><span style='text-decoration: underline;'>6</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span> NNET2   Test   0.759  2.58  1.89  0.820   3.10   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.020</span><span style='color: #BB0000;text-decoration: underline;'>9</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>8</span><span> prophet Test   0.318  2.30  1.89 -</span><span style='color: #BB0000;'>0.018</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>  3.05   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.020</span><span style='color: #BB0000;text-decoration: underline;'>4</span><span>
+#&gt; </span><span style='color: #949494;'># A tibble: 15 x 10</span><span>
+#&gt;    .model   .type      ME  RMSE   MAE     MPE  MAPE  MASE RMSSE       ACF1
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> ARIMA    Test   0.149   2.25  1.81 -</span><span style='color: #BB0000;'>0.234</span><span>   2.97   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.030</span><span style='color: #BB0000;text-decoration: underline;'>3</span><span>   
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> ARIMA.T  Test   0.786   9.07  7.80 -</span><span style='color: #BB0000;'>1.30</span><span>   12.2    </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.127</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> ARIMA.TS Test   0.195   2.18  1.83 -</span><span style='color: #BB0000;'>0.159</span><span>   2.98   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.000</span><span style='text-decoration: underline;'>214</span><span> 
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Combo1   Test  -</span><span style='color: #BB0000;'>0.228</span><span>   2.14  1.80 -</span><span style='color: #BB0000;'>0.826</span><span>   2.99   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.000</span><span style='text-decoration: underline;'>089</span><span>2
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Combo2   Test   0.191   2.28  1.85 -</span><span style='color: #BB0000;'>0.083</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>  2.99   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>  0.014</span><span style='text-decoration: underline;'>0</span><span>   
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> ETS      Test  -</span><span style='color: #BB0000;'>0.651</span><span>   2.19  1.80 -</span><span style='color: #BB0000;'>1.49</span><span>    3.05   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.000</span><span style='color: #BB0000;text-decoration: underline;'>423</span><span> 
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> K = 1    Test   0.493   2.33  1.86  0.257   2.95   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.001</span><span style='color: #BB0000;text-decoration: underline;'>07</span><span>  
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> K = 2    Test   0.443   2.26  1.85  0.222   2.98   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.001</span><span style='color: #BB0000;text-decoration: underline;'>19</span><span>  
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> NNET1    Test   1.09    3.07  2.71  1.41    4.35   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.118</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> NNET2    Test  -</span><span style='color: #BB0000;'>0.684</span><span>   2.90  2.38 -</span><span style='color: #BB0000;'>1.56</span><span>    4.00   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.275</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>11</span><span> NNETT    Test  -</span><span style='color: #BB0000;'>1.58</span><span>    4.31  3.39 -</span><span style='color: #BB0000;'>3.22</span><span>    5.99   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.079</span><span style='color: #BB0000;text-decoration: underline;'>7</span><span>   
+#&gt; </span><span style='color: #BCBCBC;'>12</span><span> NNETT1   Test  -</span><span style='color: #BB0000;'>0.275</span><span>   3.25  2.83 -</span><span style='color: #BB0000;'>0.659</span><span>   4.60   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.271</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>13</span><span> NNETT2   Test   1.04    3.32  3.11  1.42    5.21   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.018</span><span style='color: #BB0000;text-decoration: underline;'>1</span><span>   
+#&gt; </span><span style='color: #BCBCBC;'>14</span><span> NNETTS   Test  -</span><span style='color: #BB0000;'>0.292</span><span>   3.05  2.51 -</span><span style='color: #BB0000;'>0.804</span><span>   4.32   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.096</span><span style='color: #BB0000;text-decoration: underline;'>5</span><span>   
+#&gt; </span><span style='color: #BCBCBC;'>15</span><span> prophet  Test   0.013</span><span style='text-decoration: underline;'>0</span><span>  2.18  1.86 -</span><span style='color: #BB0000;'>0.444</span><span>   3.04   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.012</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span>   
 #&gt; 
 #&gt; $Min.Model
 #&gt; </span><span style='color: #949494;'># A tibble: 1 x 10</span><span>
-#&gt;   .model .type    ME  RMSE   MAE    MPE  MAPE  MASE RMSSE    ACF1
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> ARIMA  Test  0.168  2.32  1.85 -</span><span style='color: #BB0000;'>0.242</span><span>  3.03   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.030</span><span style='color: #BB0000;text-decoration: underline;'>2</span><span>
+#&gt;   .model .type     ME  RMSE   MAE   MPE  MAPE  MASE RMSSE      ACF1
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> ETS    Test  -</span><span style='color: #BB0000;'>0.651</span><span>  2.19  1.80 -</span><span style='color: #BB0000;'>1.49</span><span>  3.05   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>NaN</span><span> -</span><span style='color: #BB0000;'>0.000</span><span style='color: #BB0000;text-decoration: underline;'>423</span><span>
 #&gt; 
 #&gt; $Min.Report
 #&gt; </span><span style='color: #949494;'># A mable: 1 x 1</span><span>
-#&gt;                               ARIMA
-#&gt;                             </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;ARIMA(1,0,2)(0,1,1)[4] w/ drift&gt;
+#&gt;            ETS
+#&gt;        </span><span style='color: #949494;font-style: italic;'>&lt;model&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> &lt;ETS(A,N,A)&gt;
 #&gt; 
 #&gt; $Min.Res.Plot
 #&gt; </div></span></pre>
